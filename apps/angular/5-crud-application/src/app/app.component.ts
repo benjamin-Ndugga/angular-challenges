@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { randText } from '@ngneat/falso';
+import { Todo } from './todo.model';
 
 @Component({
   imports: [CommonModule],
@@ -15,21 +16,21 @@ import { randText } from '@ngneat/falso';
   styles: [],
 })
 export class AppComponent implements OnInit {
-  todos!: any[];
+  todos!: Todo[];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.http
-      .get<any[]>('https://jsonplaceholder.typicode.com/todos')
+      .get<Todo[]>('https://jsonplaceholder.typicode.com/todos')
       .subscribe((todos) => {
         this.todos = todos;
       });
   }
 
-  update(todo: any) {
+  update(todo: Todo) {
     this.http
-      .put<any>(
+      .put<Todo>(
         `https://jsonplaceholder.typicode.com/todos/${todo.id}`,
         JSON.stringify({
           todo: todo.id,
@@ -43,8 +44,12 @@ export class AppComponent implements OnInit {
           },
         },
       )
-      .subscribe((todoUpdated: any) => {
-        this.todos[todoUpdated.id - 1] = todoUpdated;
+      .subscribe((todoUpdated: Todo) => {
+        this.todos = this.todos.map((t) =>
+          t.id === todoUpdated.id ? todoUpdated : t,
+        );
+        // this.todos[todoUpdated.id - 1] = todoUpdated;
+        // resolved issues with good practices
       });
   }
 }

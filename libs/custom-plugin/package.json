@@ -2,5 +2,8 @@
   "name": "@angular-challenges/custom-plugin",
   "version": "0.0.1",
   "type": "commonjs",
-  "generators": "./generators.json"
+  "generators": "./generators.json",
+  "dependencies": {
+    "@angular-challenges/custom-plugin": "file:"
+  }
 }
