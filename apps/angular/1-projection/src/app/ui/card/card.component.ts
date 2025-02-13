@@ -1,4 +1,4 @@
-import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgFor, NgTemplateOutlet } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -28,7 +28,7 @@ import {
     </button>
   `,
   standalone: true,
-  imports: [NgFor, NgIf, NgTemplateOutlet],
+  imports: [NgFor, NgTemplateOutlet],
   host: {
     class:
       'border-2 border-black rounded-md p-4 flex flex-col gap-3 w-fit flex flex-col gap-3',
