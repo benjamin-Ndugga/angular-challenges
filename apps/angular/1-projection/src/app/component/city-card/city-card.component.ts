@@ -28,7 +28,7 @@ import { ListItemComponent } from '../../ui/list-item/list-item.component';
   styles: [
     `
       .bg-light-orange {
-        background-color: rgba(255, 200, 150, 0.8);
+        background-color: rgba(164, 164, 94, 0.8);
       }
     `,
   ],
