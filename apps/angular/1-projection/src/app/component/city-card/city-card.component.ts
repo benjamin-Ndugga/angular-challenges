@@ -16,7 +16,7 @@ import { ListItemComponent } from '../../ui/list-item/list-item.component';
       class="bg-light-orange"
       (add)="addCity()">
       <img src="assets/img/city.png" width="200px" />
-      <
+
       <ng-template #rowRef let-city>
         <app-list-item (delete)="deleteCity(city.id)">
           {{ city.name }}
